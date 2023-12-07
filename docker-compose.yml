@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongodb:
+    container_name: "my_db"
+    image: mongo:latest
+    volumes:
+      - my_db:/data/db
+    ports:
+      - "27017:27017"
+  api:
+    build: ./api
+    container_name: 'api'
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./api:/app
+      - ./api:/node_modules
+    depends_on:
+      - mongodb
+
+  client:
+    build: ./my-app
+    container_name: client
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./my-app:/app
+      - ./app:/node_modules
+    stdin_open: true
+    tty: true
+volumes:
+    my_db:

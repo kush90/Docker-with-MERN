@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+  font-size: 16px;
+}
+.form {
+  width: 50%;
+  margin: 35px 36%;
+  .mr {
+    margin-right:10px;
+  }
+}
+
+.list {
+  width:50%;
+  margin:26px 33%;
+  list-style-type: none;
+  line-height: 2;
+  .delete {
+    margin-left:10px;
+  }
+}
